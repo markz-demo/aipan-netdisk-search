@@ -24,26 +24,26 @@ export default defineNuxtConfig({
                 }
             ],
             link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-            script: [
-                {
-                    src: 'https://www.googletagmanager.com/gtag/js?id=G-17SPF6S871',
-                    async: true
-                },
-                {
-                    src: '/ga.js'
-                },
-                {
-                    src: '/qrcode.min.js'
-                },
-                {
-                    src: 'https://challenges.cloudflare.com/turnstile/v0/api.js'
-                },
-                {
-                    src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8210373406341452',
-                    async: true,
-                    crossorigin: 'anonymous'
-                }
-            ]
+            // script: [
+            //     {
+            //         src: 'https://www.googletagmanager.com/gtag/js?id=G-17SPF6S871',
+            //         async: true
+            //     },
+            //     {
+            //         src: '/ga.js'
+            //     },
+            //     {
+            //         src: '/qrcode.min.js'
+            //     },
+            //     {
+            //         src: 'https://challenges.cloudflare.com/turnstile/v0/api.js'
+            //     },
+            //     {
+            //         src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8210373406341452',
+            //         async: true,
+            //         crossorigin: 'anonymous'
+            //     }
+            // ]
 
         }
     },
@@ -104,7 +104,7 @@ export default defineNuxtConfig({
     ],
     nitro: {
         devProxy: {
-           
+
         }
     },
     runtimeConfig: {

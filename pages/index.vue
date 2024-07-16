@@ -1,5 +1,5 @@
 <script setup>
-import {useDoubanStore} from "~/stores/douban";
+import { useDoubanStore } from "~/stores/douban";
 
 definePageMeta({
   layout: 'custom',
@@ -12,10 +12,10 @@ const doubanCache = useCookie('doubanCache', {
 })
 
 const search = (keyword) => {
-  router.push({path: '/search', query: {keyword: encodeURIComponent(keyword)}})
+  router.push({ path: '/search', query: { keyword: encodeURIComponent(keyword) } })
 }
 const donate = () => {
-  router.push({path: '/donate'})
+  router.push({ path: '/donate' })
 }
 const hotKeywords = ref(['庆余年', '歌手2024', '我的阿勒泰', '新生', '周处除三害', '热辣滚烫', '第二十条', '承欢记', '哈哈哈哈哈'])
 const doubanData = ref([])
@@ -28,7 +28,7 @@ const colorMode = useColorMode()
 
 const goDouban = (movie) => {
   // window.open(movie.url, '_blank')
-  router.push({path: '/search', query: {keyword: encodeURIComponent(movie.title)}})
+  router.push({ path: '/search', query: { keyword: encodeURIComponent(movie.title) } })
 }
 
 onMounted(async () => {
@@ -61,18 +61,10 @@ onMounted(async () => {
     </div>
 
     <div class="max-w-[1240px] mx-auto mt-[20px]">
-      <div
-          class="w-[80%] md:w-[700px] mx-auto">
+      <div class="w-[80%] md:w-[700px] mx-auto">
         <client-only>
-          <el-input
-              v-model="searchKeyword"
-              placeholder="请输入关键词搜索"
-              @keydown.enter="search(searchKeyword)"
-              prefix-icon="Search"
-              size="large"
-              input-style=" height: 48px;"
-              clearable
-          >
+          <el-input v-model="searchKeyword" placeholder="请输入关键词搜索" @keydown.enter="search(searchKeyword)"
+            prefix-icon="Search" size="large" input-style=" height: 48px;" clearable>
           </el-input>
         </client-only>
       </div>
@@ -82,15 +74,10 @@ onMounted(async () => {
       <h1 class="text-[12px] sm:text-sm text-slate-600 font-bold dark:text-white mt-[20px]">豆瓣热门影视榜单</h1>
       <div class="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-8  gap-3  mt-[10px]">
         <div
-            class="mx-1 cursor-pointer truncate text-xs font-bold dark:bg-slate-700 dark:text-slate-100 rounded-[5px] p-2"
-            v-for="(movie,index) in doubanData"
-            :key="index"
-            type="info"
-            @click="goDouban(movie)"
-        >
+          class="mx-1 cursor-pointer truncate text-xs font-bold dark:bg-slate-700 dark:text-slate-100 rounded-[5px] p-2"
+          v-for="(movie, index) in doubanData" :key="index" type="info" @click="goDouban(movie)">
           <img class="w-full h-[180px] lg:h-[220px] xl:h-[161px] rounded-[5px] object-cover"
-               :src="'https://images.weserv.nl/?url='+ movie.cover"
-               alt="" referrerpolicy="never">
+            :src="'https://images.weserv.nl/?url=' + movie.cover" alt="" referrerpolicy="never">
           <p class="mt-1  text-center truncate">
             {{ movie.title }}
             {{ movie.rate }}
@@ -100,14 +87,14 @@ onMounted(async () => {
     </div>
 
     <div class="p-4">
-      <div class="flex flex-row items-center justify-center  gap-3 my-3">
+      <!-- <div class="flex flex-row items-center justify-center  gap-3 my-3">
         <a class="" href="https://github.com/unilei/aipan-netdisk-search">
           <img class="w-[30px] h-[30px]" src="@/assets/skill-icons--github-dark.svg" alt="github">
         </a>
         <el-button link color="#ffffff" @click="donate()">
           <img class="w-[30px] h-[30px]" src="@/assets/donation/dashang.svg" alt="打赏">
         </el-button>
-      </div>
+      </div> -->
       <p class="text-center text-[8px] sm:text-[12px] text-slate-400">
         声明：本站不产生/存储任何数据，也从未参与录制、上传，所有资源均来自网络。
       </p>
@@ -116,7 +103,7 @@ onMounted(async () => {
 </template>
 
 <style scoped>
- :deep(.el-input__wrapper.is-focus) {
-   --el-input-focus-border-color: #6648ff;
- }
+:deep(.el-input__wrapper.is-focus) {
+  --el-input-focus-border-color: #6648ff;
+}
 </style>

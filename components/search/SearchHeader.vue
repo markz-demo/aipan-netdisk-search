@@ -13,7 +13,7 @@ const props = defineProps({
 const searchKeyword = ref(props.keyword)
 const emit = defineEmits(['search'])
 const search = () => {
-  emit('search',searchKeyword.value)
+  emit('search', searchKeyword.value)
 }
 const goGithub = () => {
   window.open('https://github.com/unilei/aipan-netdisk-search.git')
@@ -30,20 +30,16 @@ console.log(colorMode.preference)
       <div class="max-w-[1240px] mx-auto h-[40px]  flex flex-row items-center gap-2 md:gap-6 relative">
 
         <div class="flex flex-row items-center gap-1">
-          <img class="w-[30px] h-[30px] md:w-[40px] md:h-[40px] cursor-pointer" src="@/assets/my-logo.png" alt="logo" @click="goHome()">
-          <h1 class="hidden md:block text-[14px] font-serif font-bold cursor-pointer dark:text-white" @click="goHome()" >爱盼-网盘资源搜索</h1>
+          <img class="w-[30px] h-[30px] md:w-[40px] md:h-[40px] cursor-pointer" src="@/assets/my-logo.png" alt="logo"
+            @click="goHome()">
+          <h1 class="hidden md:block text-[14px] font-serif font-bold cursor-pointer dark:text-white" @click="goHome()">
+            爱盼-网盘资源搜索</h1>
         </div>
 
         <div class="w-[220px] md:w-[400px]">
           <client-only>
-            <el-input class="h-[30px]"
-                      v-model="searchKeyword"
-                      placeholder="请输入关键词搜索"
-                      @keydown.enter="search()"
-                      prefix-icon="Search"
-                      size="small"
-                      clearable
-            >
+            <el-input class="h-[30px]" v-model="searchKeyword" placeholder="请输入关键词搜索" @keydown.enter="search()"
+              prefix-icon="Search" size="small" clearable>
             </el-input>
           </client-only>
         </div>
@@ -57,9 +53,9 @@ console.log(colorMode.preference)
               <img class="w-[20px] h-[20px]" src="@/assets/theme/icon-park-solid--dark-mode.svg" alt="">
             </el-button>
           </client-only>
-          <el-button link @click="goGithub()">
+          <!-- <el-button link @click="goGithub()">
             <img class="w-[20px] h-[20px]" src="@/assets/skill-icons--github-dark.svg" alt="github">
-          </el-button>
+          </el-button> -->
         </div>
 
       </div>
